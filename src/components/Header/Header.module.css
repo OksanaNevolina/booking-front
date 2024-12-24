@@ -1,0 +1,56 @@
+.Header{
+    background-color: #525156;
+    color: #fff;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+
+
+}
+
+.Scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+.Navlink{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    font-size: 20px;
+    font-weight: bold;
+
+
+}
+.Navlink a{
+    text-decoration: none;
+    color: cornsilk;
+}
+.Navlink a[class = 'active']{
+    color: #4a7aa1;
+
+}
+.Logo{
+    font-size: 30px;
+    margin-left: 20px;
+    font-weight: bold;
+
+}
+.User{
+    font-size: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
