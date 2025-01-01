@@ -50,6 +50,7 @@ const login = createAsyncThunk<IUser, { user: IAuth }>(
         }
     },
 );
+
 const registerInClinic = createAsyncThunk<IUser, { user: IAuthRegister }>(
     'authSlice/register',
     async ({ user }, { rejectWithValue }) => {

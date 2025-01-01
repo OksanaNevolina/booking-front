@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import {AuthLayout, MainLayout} from "./components/layouts";
 import {ErrorPage} from "./pages/errorPage";
-import InfoMe from "./components/infoMe/InfoMe";
 import {AuthLogin} from "./components";
 import {AuthRegister} from "./components/authRegister";
+import {BookingsList} from "./components/bookingsList";
 
 
 
@@ -25,11 +25,15 @@ const router = createBrowserRouter([
                 path: 'sign-in',
                 element: <AuthLogin/>,
             },
+            {
+                path: 'admin/sign-in',
+                element: <AuthLogin/>,
+            },
         ],
     },
     {
         path: 'bookings',
-        element: <InfoMe />,
+        element: <BookingsList />,
 
     },
     {

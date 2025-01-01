@@ -7,7 +7,7 @@ import css from './Header.module.css'
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {changeTheme} from "../../redux/slices/themeSlice";
-import InfoMe from "../infoMe/InfoMe";
+
 
 
 
@@ -33,10 +33,7 @@ const Header = () => {
                             inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </div>
-                    <div className={css.User}>
-                        <div >{<InfoMe/>}</div>
-                        <div>user</div>
-                    </div>
+
                 </div>
 
 

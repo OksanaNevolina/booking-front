@@ -5,6 +5,9 @@ const login = '/auth/sign-in';
 const logout = '/logout';
 const refresh = '/refresh';
 const users = '/users';
+const bookings = '/bookings';
+
+
 
 const urls = {
     auth: {
@@ -14,5 +17,8 @@ const urls = {
         logout
     },
     getUser: `${users}/me`,
+    getAllBookings: `${bookings}`
+
+
 };
 export { baseURL, urls };
