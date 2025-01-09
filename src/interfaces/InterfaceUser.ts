@@ -1,13 +1,13 @@
 import {ERole} from "../enam/role.enum";
 
 export interface IUser {
-    name: string;
+    id: string;
     email: string;
-}
-export interface IUserResponceRegister extends Document {
-    email: string;
-    password: string;
+    nameUser:string,
     name: string;
     role: ERole;
     createdAt: Date;
+}
+export interface IResDataUser {
+    data: IUser;
 }

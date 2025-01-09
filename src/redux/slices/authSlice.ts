@@ -8,7 +8,7 @@ import { AxiosError } from 'axios';
 
 
 import { AuthService } from '../../services';
-import {IAuth, IAuthRegister, IUser} from "../../interfaces";
+import {IAuth, IAuthRegister, IResDataUser, IUser} from "../../interfaces";
 
 
 interface IState {
@@ -24,12 +24,11 @@ const initialState: IState = {
     me: null,
 };
 
-const getMe = createAsyncThunk<IUser, void>(
+const getMe = createAsyncThunk<IResDataUser, void>(
     'authSlice/getMe',
     async (_, { rejectWithValue }) => {
         try {
             const { data } = await AuthService.getMe();
-            console.log(data)
             return data;
         } catch (e) {
             const err = e as AxiosError;
@@ -37,13 +36,11 @@ const getMe = createAsyncThunk<IUser, void>(
         }
     },
 );
-const login = createAsyncThunk<IUser, { user: IAuth }>(
+const login = createAsyncThunk<IResDataUser, { user: IAuth }>(
     'authSlice/login',
     async ({ user }, { rejectWithValue }) => {
         try {
-            const  data  = await AuthService.login(user);
-            console.log(data)
-            return data
+            return await AuthService.login(user);
         } catch (e) {
             const err = e as AxiosError;
             return rejectWithValue(err.response.data);
@@ -55,9 +52,7 @@ const registerInClinic = createAsyncThunk<IUser, { user: IAuthRegister }>(
     'authSlice/register',
     async ({ user }, { rejectWithValue }) => {
         try {
-            const  data  = await AuthService.registerInClinic(user);
-            console.log(data)
-            return data
+            return await AuthService.registerInClinic(user);
         } catch (e) {
             const err = e as AxiosError;
             return rejectWithValue(err.response.data);
@@ -71,10 +66,10 @@ const authSlice = createSlice({
     extraReducers: (builder) =>
         builder
             .addCase(login.fulfilled, (state, action) => {
-                state.me = action.payload;
+                state.me = action.payload.data;
             })
             .addCase(getMe.fulfilled, (state, action) => {
-                state.me = action.payload;
+                state.me = action.payload.data;
             })
             .addMatcher(isRejected(), (state, action) => {
                 state.errors = action.payload;

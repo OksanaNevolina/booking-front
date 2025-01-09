@@ -1,5 +1,5 @@
 
-import {IApiResponse, IAuth, IAuthRegister, ITokens, IUser} from '../interfaces';
+import {IApiResponse, IAuth, IAuthRegister, IResDataUser, ITokens, IUser} from '../interfaces';
 import { IRes } from '../types';
 import { ApiService } from './ApiService';
 import {urls} from "../constants/urls";
@@ -8,16 +8,14 @@ const accessTokenKey = 'access';
 const refreshTokenKey = 'refresh';
 const AuthService = {
 
-    async login(user: IAuth): Promise<IUser> {
+    async login(user: IAuth): Promise<IResDataUser> {
         try {
 
             const { data: { data: res } } = await ApiService.post<IApiResponse<ITokens>>(
                 urls.auth.login,
                 user,
             );
-
-            console.log(res.accessToken);
-            console.log('AccessToken:', res.accessToken);
+            
 
             this.setTokens({
                 access: res.accessToken,
@@ -61,7 +59,7 @@ const AuthService = {
         });
     },
 
-    getMe(): IRes<IUser> {
+    getMe(): IRes<IResDataUser> {
         return ApiService.get(urls.getUser);
     },
     // async logoutMe(): Promise<void> {

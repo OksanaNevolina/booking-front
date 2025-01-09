@@ -10,6 +10,7 @@ export interface IBookingResponse {
     date: string;
     startTime: string;
     endTime: string;
+    createdBy: string;
     createdAt: Date;
     updatedAt: Date;
 }

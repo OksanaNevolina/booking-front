@@ -11,20 +11,18 @@ const AuthLogin = () => {
     const { register, reset, handleSubmit } = useForm<IAuth>();
 
     const { errors } = useAppSelector((state) => state.authReducer);
-
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-
     const login: SubmitHandler<IAuth> = async (user)=> {
 
         const {
             meta: { requestStatus },
+            payload
         } = await dispatch(authActions.login({ user }));
-
 
         if (requestStatus === 'fulfilled') {
             reset();
-            navigate('/bookings');
+            navigate('/bookings', { state: { me:payload } });
         }
     };
     return (
