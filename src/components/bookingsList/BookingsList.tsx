@@ -39,23 +39,24 @@ const BookingsList: React.FC = () => {
 
     return (
         <>
-            <div>
+            <div className={styles.userInfo}>
                 {me ? (
-                    <p>Привіт, {me.name || me.nameUser}!</p>
+                    <p>
+                        <span className={styles.name}>  Привіт , {me.name || me.nameUser} ! </span>
+                    </p>
                 ) : (
-                    <p>Ім'я користувача завантажується...</p>
+                    <p className={styles.loading}>Ім'я користувача завантажується...</p>
                 )}
-
             </div>
             <div className={styles.container}>
-                <h1 className={styles.title}>Bookings</h1>
+                <h1 className={styles.title}>Бронювання</h1>
                 <ul className={styles.list}>
                     {bookings.map((booking) => (
                         <li key={booking.id} className={styles.item}>
                             <div className={styles.info}>
-                                <p><strong>User:</strong> {booking.user}</p>
-                                <p><strong>Date:</strong> {new Date(booking.date).toLocaleDateString()}</p>
-                                <p><strong>Time:</strong> {booking.startTime} - {booking.endTime}</p>
+                                <p><strong>Для кого бронь: </strong> {booking.user}</p>
+                                <p><strong>Дата: </strong> {new Date(booking.date).toLocaleDateString()}</p>
+                                <p><strong>Час: </strong> {booking.startTime} - {booking.endTime}</p>
                             </div>
                         </li>
                     ))}

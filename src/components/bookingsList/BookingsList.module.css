@@ -1,14 +1,13 @@
 .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-}
-
-.title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+    margin: 20px;
+    background-color: #f5f7fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0.7, 0.5, 0.7, 0.9);
 }
 
 .list {
@@ -17,20 +16,22 @@
 }
 
 .item {
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #f9f9f9;
+    background-color: #fafafc;
     transition: box-shadow 0.3s ease;
 }
 
 .item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgb(31, 31, 30);
 }
 
 .info {
-    line-height: 1.5;
+    font-size: 25px;
+    line-height: 2.5;
+    width: 400px;
 }
 
 .loading {
@@ -43,4 +44,29 @@
     text-align: center;
     font-size: 18px;
     color: red;
+}
+
+
+.userInfo {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.name {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #b8bdc0;
+}
+
+.loading {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #539ae1;
+    margin: 15px 0;
 }
