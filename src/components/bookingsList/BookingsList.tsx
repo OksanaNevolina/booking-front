@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './BookingsList.module.css';
 import { bookingActions } from "../../redux/slices/bookingsSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { useLocation, useSearchParams } from "react-router-dom";
+import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import { Pagination } from "@mui/material";
 import { authActions } from "../../redux";
 
@@ -16,6 +16,7 @@ const BookingsList: React.FC = () => {
 
     const location = useLocation();
     const stateMe = location.state?.me;
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!stateMe) {
@@ -48,12 +49,20 @@ const BookingsList: React.FC = () => {
                     <p className={styles.loading}>Ім'я користувача завантажується...</p>
                 )}
             </div>
+            <div className={styles.actions}>
+                <button
+                    className={styles.createButton}
+                    onClick={() => navigate('/create-booking')}
+                >
+                    Створити нове бронювання
+                </button>
+            </div>
             <div className={styles.container}>
                 <h1 className={styles.title}>Бронювання</h1>
                 <ul className={styles.list}>
                     {filteredBookings.map((booking) => (
                         <li key={booking.id} className={styles.item}>
-                            <div className={styles.info}>
+                        <div className={styles.info}>
                                 <p><strong>Для кого бронь: </strong> {booking.user}</p>
                                 <p><strong>Дата: </strong> {new Date(booking.date).toLocaleDateString()}</p>
                                 <p><strong>Час: </strong> {booking.startTime} - {booking.endTime}</p>

@@ -14,3 +14,10 @@ export interface IBookingResponse {
     createdAt: Date;
     updatedAt: Date;
 }
+export interface IBookingReq{
+    user: string;
+    date: string;
+    startTime: string;
+    endTime: string;
+    createdBy: string;
+}

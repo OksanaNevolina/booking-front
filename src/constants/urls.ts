@@ -17,7 +17,8 @@ const urls = {
         logout
     },
     getUser: `${users}/me`,
-    getAllBookings: `${bookings}`
+    getAllBookings: `${bookings}`,
+    createBooking: `${bookings}`,
 
 
 };

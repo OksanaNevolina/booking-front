@@ -4,6 +4,7 @@ import {ErrorPage} from "./pages/errorPage";
 import {AuthLogin} from "./components";
 import {AuthRegister} from "./components/authRegister";
 import {BookingsList} from "./components/bookingsList";
+import {CreateBooking} from "./components/сreateBooking";
 
 
 
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
     {
         path: 'bookings',
         element: <BookingsList />,
+
+    },
+    {
+        path: 'create-booking',
+        element: <CreateBooking />,
 
     },
     {
