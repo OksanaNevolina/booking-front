@@ -21,13 +21,10 @@ const AuthRegister = () => {
             meta: { requestStatus },
         } = await dispatch(authActions.registerInClinic({ user }));
 
-        console.log({
-            meta: { requestStatus },
-        })
 
         if (requestStatus === 'fulfilled') {
             reset();
-            navigate('/bookings');
+            navigate('/auth/sign-in');
         }
     };
     return (
