@@ -1,0 +1,6 @@
+.mainBox{
+    width: 1550px;
+    height: 750px;
+    background-image: url("cli.png");
+    background-size: cover;
+}
